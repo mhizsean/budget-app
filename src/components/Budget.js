@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
+
 const Budget = () => {
-	return (
-		<div className='alert alert-secondary'>
-			<span>Budget: £2000</span>
-		</div>
-	);
+  const { budget } = useContext(AppContext); //destructure to get budget from contxt
+  return (
+    <div className="alert alert-secondary">
+      <span>Budget: £{budget}</span>
+    </div>
+  );
 };
 
 export default Budget;

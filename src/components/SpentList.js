@@ -1,21 +1,18 @@
-import React from 'react'
-import SpentItem from './SpentItem'
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
+import SpentItem from "./SpentItem";
 
 const SpentList = () => {
-  const expenses = [
-		{ id: 12, name: 'shopping', cost: 40 },
-		{ id: 13, name: 'holiday', cost: 400 },
-		{ id: 14, name: 'car service', cost: 50 },
-	];
+  const { expenses } = useContext(AppContext); //destructure to get expenses from contxt
   return (
     <>
-      <ul className='list-group'>
-			{expenses.map((expense) => (
-				<SpentItem id={expense.id} name={expense.name} cost={expense.cost} />
-			))}
-		</ul>
+      <ul className="list-group">
+        {expenses.map((expense) => (
+          <SpentItem id={expense.id} name={expense.name} cost={expense.cost} />
+        ))}
+      </ul>
     </>
-  )
-}
+  );
+};
 
-export default SpentList
+export default SpentList;
